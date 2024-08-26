@@ -76,13 +76,57 @@ body {
     background: var(--clr-neutral-card-bg);
     color: white; 
     padding: var(--space-md); 
-    border-radius: .5rem;
+    border-radius: 1rem;
 }
 
-.card > :nth-child(1) { 
-    width: 100%; 
-    border-radius: .5rem;
+.image-div { 
+    display: inline-block; 
+    border-radius: .8rem;
+    position: relative; 
 }
+
+.eye-card { 
+    width: 100%;  
+    border-radius: .8rem;
+    display: block;
+}
+
+
+.image-div::before,
+.image-div::after { 
+    content: '';
+    position: absolute; 
+    inset: 0; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    border-radius: inherit;
+    cursor: pointer;
+    transition-duration: 300ms;
+     
+}
+
+.image-div::before { 
+    background: var(--clr-accent-cyan);
+    opacity: 0; 
+    z-index: 1; 
+}
+
+.image-div::after { 
+    background-image: url('public/icon-view.svg');
+    z-index: 2;
+    opacity: 0; 
+
+}
+
+.image-div:hover::before{
+    opacity: 0.5; 
+}
+
+.image-div:hover::after{
+    opacity: 100%;   
+}
+
+
 
 .card h2 { 
     font-weight: var(--fw-semi-bold); 
